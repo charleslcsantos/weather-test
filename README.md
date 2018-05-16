@@ -4,7 +4,14 @@ _This project was generated with [Angular CLI](https://github.com/angular/angula
 
 ## Rodando o projeto
 
-Para rodar o propjeto entre na pasta do projeto pelo terminal e digite o comando `ng serve`. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+É necessário ter o **Node.js** instalado na sua maquina para poder rodar o projeto.
+
+Para rodar o projeto siga estes passos:
+- Clonar o projeto
+- Entre na pasta do projeto pelo terminal
+- Instale as dependências do projeto digitando o comando `npm install`
+- Digite o comando `ng serve`.
+- Acesse `http://localhost:4200/`
 
 ## Rodando os testes
 
