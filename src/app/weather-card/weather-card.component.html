@@ -1,19 +1,23 @@
-<div class="weather-card">
+<div class="weather-card" [ngClass]="weatherTempState">
   <div class="weather-card__header">
-    <p class="weather-card__title">Cidade, ES</p>
+    <p class="weather-card__title">Urubici, BR</p>
   </div>
   <div class="weather-card__content">
-    <div class="weather-card__temperature">19º</div>
+    <div class="weather-card__highlight">19</div>
   </div>
   <div class="weather-card__footer">
-    <div class="weather-item">
-      <span class="weather-item__label">Humidity</span>
-      <span class="weather-item__value">75%</span>
+    <div *ngIf="isFeatured">
+      <div class="weather-item">
+        <span class="weather-item__label">Humidity</span>
+        <span class="weather-item__value">75%</span>
+      </div>
+      <div class="weather-item">
+        <span class="weather-item__label">Pressure</span>
+        <span class="weather-item__value">892hPa</span>
+      </div>
     </div>
-    <div class="weather-item">
-      <span class="weather-item__label">Pressure</span>
-      <span class="weather-item__value">892hPa</span>
+    <div class="weather-age">
+      <span class="weather-age__time">Updated at 02:48:27 PM</span>
     </div>
-    .weather-card_
   </div>
 </div>

@@ -1,5 +1,11 @@
 @import "assets/scss/reset";
+@import "assets/scss/variables";
+@import "assets/scss/mixins/responsive";
 
 body {
   background: #f2f2f2;
+}
+
+body, h1, h2, h3, h4, h5, h6, p {
+  font-family: $default_font;
 }

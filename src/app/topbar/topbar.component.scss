@@ -6,6 +6,8 @@
   align-items: center;
   background: #FFF;
   border-bottom: 2px solid #e9ecec;
+  position: fixed;
+  z-index: 10;
 }
 
 .topbar__logo {
