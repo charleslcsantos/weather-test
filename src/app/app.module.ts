@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
+import { WeatherService } from './services/weather/weather.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { WeatherCardComponent } from './weather-card/weather-card.component';
     HttpClientModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [
+    WeatherService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
