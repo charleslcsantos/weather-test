@@ -23,8 +23,10 @@ describe('WeatherService', () => {
     const city = 'Urubici';
     const country = 'br';
     service.getWeatherByCity(`${city},${country}`)
-    .subscribe((r: WeatherModel) => {
-      expect(r.name).toBe(city);
-    });
+    .subscribe(
+      (r: WeatherModel) => {
+        expect(r.name).toBe(city);
+      }
+    );
   });
 });

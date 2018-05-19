@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
 import { WeatherService } from './services/Weather/weather.service';
+import { LoaderComponent } from './shared/loader/loader.component';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent }
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
     AppComponent,
     TopbarComponent,
     WeatherCardComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

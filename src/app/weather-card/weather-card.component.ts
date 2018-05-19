@@ -22,7 +22,7 @@ export class WeatherCardComponent implements OnInit {
   cityWeather: WeatherModel;
 
   constructor(
-    private weatherService: WeatherService
+    private weatherService: WeatherService,
   ) {
     this.isFeatured = false;
   }
@@ -34,10 +34,12 @@ export class WeatherCardComponent implements OnInit {
   }
 
   getWeather(param) {
-    this.weatherService.getWeatherByCity(param.name).subscribe((weather: WeatherModel) => {
-      this.cityWeather = weather;
-      this.weatherTempState = this.getTempStyle(this.cityWeather);
-    });
+    this.weatherService.getWeatherByCity(param.name).subscribe(
+      (weather: WeatherModel) => {
+        this.cityWeather = weather;
+        this.weatherTempState = this.getTempStyle(this.cityWeather);
+      }
+    );
   }
 
   getTempStyle(w: WeatherModel) {

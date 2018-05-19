@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, Scheduler, timer, interval } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { WeatherModel } from '../../models/WeatherModels';
+import { LoaderService } from '../Loader/loader.service';
 
 const KEY = 'c2fac82d4fbd6e7f51ef418a7706c3ce';
 const API_URL = 'http://api.openweathermap.org/data/2.5';
@@ -14,6 +15,7 @@ const weather = {};
 export class WeatherService {
   constructor(
     private httpService: HttpClient,
+    private loaderService: LoaderService
   ) { }
 
   /**
@@ -28,21 +30,27 @@ export class WeatherService {
       .set('appid', KEY);
 
     return Observable.create(observer => {
-      timer(0, 600000).subscribe(() => {
-        this.httpService.get(`${API_URL}/weather`, { params })
-        .subscribe((res: WeatherModel) => {
-          if (res) {
-            res['updateTime'] = new Date().toLocaleTimeString();
-            observer.next(res);
-            observer.complete();
-            this.cacheWeather(res);
-          }
-        },
-        error => {
-          observer.error(error);
-          observer.complete();
-        });
-      });
+      timer(0, 600000).subscribe(
+        () => {
+          this.loaderService.showLoader();
+          this.httpService.get(`${API_URL}/weather`, { params })
+          .subscribe(
+            (res: WeatherModel) => {
+              if (res) {
+                res['updateTime'] = new Date().toLocaleTimeString();
+                observer.next(res);
+                observer.complete();
+                this.cacheWeather(res);
+                this.loaderService.showLoader(false);
+              }
+            },
+            (error) => {
+              observer.error(error);
+              observer.complete();
+            }
+          );
+        }
+      );
     });
   }
 
