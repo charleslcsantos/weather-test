@@ -17,3 +17,4 @@ Para rodar o projeto siga estes passos:
 
 Para rodar os testes digite o comando `ng test` para executar os testes via [Karma](https://karma-runner.github.io).
 
+.
