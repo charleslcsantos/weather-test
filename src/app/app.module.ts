@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
-import { WeatherService } from './services/weather/weather.service';
+import { WeatherService } from './services/Weather/weather.service';
 
 @NgModule({
   declarations: [

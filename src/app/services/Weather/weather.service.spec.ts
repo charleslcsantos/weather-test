@@ -2,6 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { WeatherService } from './weather.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { WeatherModel } from '../../models/WeatherModels';
 
 describe('WeatherService', () => {
   let service: WeatherService;
@@ -18,11 +19,12 @@ describe('WeatherService', () => {
     expect(s).toBeTruthy();
   }));
 
-
   it('should return information about the city weather', () => {
-    const city = 'Urubici, br';
-    service.getWeatherByCity(city).subscribe(r => {
-      console.log(r);
+    const city = 'Urubici';
+    const country = 'br';
+    service.getWeatherByCity(`${city},${country}`)
+    .subscribe((r: WeatherModel) => {
+      expect(r.name).toBe(city);
     });
   });
 });

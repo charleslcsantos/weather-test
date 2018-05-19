@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  cities: {};
+
+  constructor() {
+    this.cities = [
+      { name: 'Nuuk,GL', isFeatured: false },
+      { name: 'Urubici,BR', isFeatured: true },
+      { name: 'Nairobi,KE', isFeatured: false },
+    ];
+  }
 }

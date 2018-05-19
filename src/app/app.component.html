@@ -1,6 +1,4 @@
 <app-topbar></app-topbar>
 <div class="wrapper">
-	<app-weather-card></app-weather-card>
-	<app-weather-card [isFeatured]=true></app-weather-card>
-	<app-weather-card></app-weather-card>
+	<app-weather-card *ngFor="let city of cities" [city]="city"></app-weather-card>
 </div>
