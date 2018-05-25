@@ -10,8 +10,14 @@ Para rodar o projeto siga estes passos:
 - Clonar o projeto
 - Entre na pasta do projeto pelo terminal
 - Instale as dependências do projeto digitando o comando `npm install`
+- Instale o angular cli `npm install -g @angular/cli`
 - Digite o comando `ng serve`.
 - Acesse `http://localhost:4200/`
+
+## Build
+
+Para gerar o build do projeto digite o comando: `ng build`.
+Os arquivos estarão na pasta `dist/azul`
 
 ## Rodando os testes
 

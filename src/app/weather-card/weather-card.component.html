@@ -1,11 +1,16 @@
-<div class="weather-card" [ngClass]="weatherTempState" *ngIf="cityWeather">
+<div class="weather-card" [ngClass]="weatherTempState">
   <div class="weather-card__header">
-    <p class="weather-card__title">{{ cityWeather?.name }}</p>
+    <p class="weather-card__title">{{ city.name }}</p>
   </div>
   <div class="weather-card__content">
-    <div class="weather-card__highlight">{{ cityWeather?.main.temp.toFixed(0) }}</div>
+    <app-loader *ngIf="showLoader"></app-loader>
+    <div class="weather-card__highlight" *ngIf="!error">{{ cityWeather?.main.temp.toFixed(0) }}</div>
+    <div class="weather-card__error" *ngIf="error">
+      Something went wrong
+      <button class="button" (click)="reload()">Try Again</button>
+    </div>
   </div>
-  <div class="weather-card__footer">
+  <div class="weather-card__footer" *ngIf="!error">
     <div *ngIf="city.isFeatured">
       <div class="weather-item">
         <span class="weather-item__label">Humidity</span>

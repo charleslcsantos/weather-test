@@ -43,6 +43,15 @@ app-weather-card:last-child {
 
 .weather-card__content {
 	padding: 25px 0;
+	position: relative;
+	min-height: 120px;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-card__error {
+	color: #ed1946;
 }
 
 .weather-card__highlight {

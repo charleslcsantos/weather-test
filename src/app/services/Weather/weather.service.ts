@@ -32,7 +32,6 @@ export class WeatherService {
     return Observable.create(observer => {
       timer(0, 600000).subscribe(
         () => {
-          this.loaderService.showLoader();
           this.httpService.get(`${API_URL}/weather`, { params })
           .subscribe(
             (res: WeatherModel) => {
@@ -41,7 +40,6 @@ export class WeatherService {
                 observer.next(res);
                 observer.complete();
                 this.cacheWeather(res);
-                this.loaderService.showLoader(false);
               }
             },
             (error) => {
